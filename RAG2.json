@@ -1,0 +1,32 @@
+[
+  {
+    "id": "naming-001",
+    "category": "naming",
+    "title": "Biến phải có tên rõ ràng và đúng ngữ cảnh",
+    "language": ["all"],
+    "severity": "medium",
+    "tags": ["naming", "readability"],
+    "example_bad": "let x = 5;",
+    "example_good": "let userAge = 5;"
+  },
+  {
+    "id": "structure-002",
+    "category": "code-structure",
+    "title": "Mỗi hàm không nên dài quá 50 dòng",
+    "language": ["python", "javascript"],
+    "severity": "low",
+    "tags": ["function-length", "maintainability"]
+  },
+  {
+    "id": "security-003",
+    "category": "security",
+    "title": "Tránh hard-code mật khẩu hoặc API key trong mã nguồn",
+    "language": ["all"],
+    "severity": "high",
+    "tags": ["security", "secrets"],
+    "example_bad": "const API_KEY = '123456';",
+    "example_good": "const API_KEY = process.env.API_KEY;"
+  }
+]
+
+

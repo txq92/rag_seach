@@ -1,0 +1,70 @@
+[
+  {
+    "rule_id": "R001",
+    "title": "Kiểm tra khai báo biến",
+    "description": "Đảm bảo tất cả các biến được khai báo trước khi sử dụng để tránh lỗi undefined.",
+    "severity": "High",
+    "category": "Code Quality",
+    "language": ["JavaScript", "TypeScript"],
+    "example_correct": "let x = 10;\nconsole.log(x);",
+    "example_incorrect": "console.log(x);\nlet x = 10;",
+    "recommendation": "Sử dụng let, const hoặc var để khai báo biến trước khi sử dụng.",
+    "tags": ["variable", "declaration", "best practice"],
+    "metadata": {
+      "created_at": "2025-07-22",
+      "updated_at": "2025-07-22",
+      "applicable_files": ["*.js", "*.ts"]
+    }
+  },
+  {
+    "rule_id": "R002",
+    "title": "Loại bỏ console.log trong code production",
+    "description": "Không để lại các câu lệnh console.log trong code production để tránh rò rỉ thông tin hoặc làm chậm ứng dụng.",
+    "severity": "Medium",
+    "category": "Debugging",
+    "language": ["JavaScript", "TypeScript"],
+    "example_correct": "function logMessage(msg) {\n  if (process.env.NODE_ENV !== 'production') {\n    console.log(msg);\n  }\n}",
+    "example_incorrect": "console.log('Debug message');",
+    "recommendation": "Sử dụng một hàm logging có điều kiện hoặc loại bỏ console.log trước khi triển khai.",
+    "tags": ["console", "logging", "production"],
+    "metadata": {
+      "created_at": "2025-07-22",
+      "updated_at": "2025-07-22",
+      "applicable_files": ["*.js", "*.ts"]
+    }
+  }
+]
+
+{
+  "rule_id": "SEC003",
+  "category": "security",
+  "title": "Tránh hard-code mật khẩu hoặc API key trong mã nguồn",
+  "description": "Việc lưu trữ các thông tin nhạy cảm như API key, mật khẩu trực tiếp trong code là một rủi ro bảo mật nghiêm trọng. Nếu mã nguồn bị lộ, kẻ tấn công sẽ có được các thông tin này.",
+  "severity": "high",
+  "language": ["all"], // Sử dụng "all" cho các quy tắc áp dụng chung
+  "tags": ["security", "secrets", "best-practice"],
+  "example_incorrect": "const API_KEY = '12345-ABCDE-SECRET-KEY';",
+  "example_correct": "const API_KEY = process.env.API_KEY;",
+  "recommendation": "Luôn sử dụng biến môi trường (environment variables) hoặc các dịch vụ quản lý bí mật (secret management services) để lưu trữ thông tin nhạy cảm.",
+  "metadata": {
+    "created_by": "security_team",
+    "created_at": "2025-07-22",
+    "updated_at": "2025-07-22"
+  }
+}
+
+
+{
+  "rule_id": "R003",
+  "title": "Xử lý lỗi trong API",
+  "description": "Luôn bắt và log lỗi trong API để debug.",
+  "severity": "High",
+  "category": "Error Handling",
+  "code_snippets": {
+    "bad": "app.get('/api', () => { ... })",
+    "good": "app.get('/api', async (req, res, next) => {\n  try { ... }\n  catch (err) { next(err) }\n})"
+  },
+  "references": [
+    "https://expressjs.com/en/guide/error-handling.html"
+  ]
+}
