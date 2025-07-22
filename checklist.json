@@ -1,0 +1,18 @@
+[
+  {
+    "rule_id": "R001",
+    "title": "Kiểm tra khai báo biến",
+    "description": "Đảm bảo tất cả các biến được khai báo trước khi sử dụng để tránh lỗi undefined.",
+    "severity": "High",
+    "category": "Code Quality",
+    "language": ["JavaScript", "TypeScript"]
+  },
+  {
+    "rule_id": "R002",
+    "title": "Loại bỏ console.log trong code production",
+    "description": "Không để lại các câu lệnh console.log trong code production.",
+    "severity": "Medium",
+    "category": "Debugging",
+    "language": ["JavaScript"]
+  }
+]
