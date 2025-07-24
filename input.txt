@@ -1,0 +1,37 @@
+tạo cho tôi bản thiết kế hệ thống review sourrce code sử dụng AI và RAG như sau
+
+1 . RAG : 
+
++ sử dụng chromaDB với docker compose .
+
++ có 2 data là: codebase , checklist
+
++ code base sử dụng kỹ thuật AST để lưu source code
+
++ checklist code input là các qui tắc code được lưu ở file *.json
+
+data RAG sẽ chạy 1 lần đầu 
+
+2. input 
+
++ có thể là file code cần review
+
++ đoạn code cần review|
+
+3. output:
+
+đựa vào nội dung checklist , codebase , code cần review
+
+tương ứng với rule của checklist đã lưu 
+
+sẽ output ra file *md . nếu check list nào phù hợp với nội dung input thì kiểm tra note là vi pham / không
+
+check list không liên quan : note không liên quan
+
+4. yêu cầu hệ thống
+
++ input được thực hiện bằng web
+
++ sử dụng LLM với ollama phi4
+
++ tìm cách tối ưu để hệ thống review nhanh , không bị ảo giác
